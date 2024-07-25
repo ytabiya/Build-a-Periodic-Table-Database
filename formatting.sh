@@ -34,3 +34,5 @@ PSQL="psql --username=freecodecamp --dbname=periodic_table  -t --no-align --tupl
 #done
 
 #update atomic number 9
+INSERT_ELEMENTS=$($PSQL "INSERT INTO elements (atomic_number, symbol, name) VALUES (9, 'F', 'Fluorine'), (10, 'Ne', 'Neon')")
+INSERT_PROPERTIES=$($PSQL "INSERT INTO properties (atomic_number, type, atomic_mass, melting_point_celsius, boiling_point_celsius) VALUES (9, 'nonmetal', 18.998, -220, -188.1), (10, 'nonmetal', 20.18, -248.6, -246.1)")
