@@ -36,6 +36,10 @@ PSQL="psql --username=freecodecamp --dbname=periodic_table  -t --no-align --tupl
 #update atomic number 9 and 10
 #INSERT_ELEMENTS=$($PSQL "INSERT INTO elements (atomic_number, symbol, name) VALUES (9, 'F', 'Fluorine'), (10, 'Ne', 'Neon')")
 #INSERT_PROPERTIES=$($PSQL "INSERT INTO properties (atomic_number, type, atomic_mass, melting_point_celsius, boiling_point_celsius) VALUES (9, 'nonmetal', 18.998, -220, -188.1), (10, 'nonmetal', 20.18, -248.6, -246.1)")
-ELEMENT_TYPE=$($PSQL "SELECT type FROM properties WHERE atomic_number = 9")
+#ELEMENT_TYPE=$($PSQL "SELECT type FROM properties WHERE atomic_number = 9")
+#TYPE_ID=$($PSQL "SELECT type_id FROM types WHERE type = '$ELEMENT_TYPE'")
+#UPDATE_TYPE_ID=$($PSQL "UPDATE properties SET type_id = $TYPE_ID WHERE atomic_number = 9")
+
+ELEMENT_TYPE=$($PSQL "SELECT type FROM properties WHERE atomic_number = 10")
 TYPE_ID=$($PSQL "SELECT type_id FROM types WHERE type = '$ELEMENT_TYPE'")
-UPDATE_TYPE_ID=$($PSQL "UPDATE properties SET type_id = $TYPE_ID WHERE atomic_number = 9")
+UPDATE_TYPE_ID=$($PSQL "UPDATE properties SET type_id = $TYPE_ID WHERE atomic_number = 10")
