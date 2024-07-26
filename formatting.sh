@@ -1,6 +1,31 @@
 #!/bin/bash
 PSQL="psql --username=freecodecamp --dbname=periodic_table  -t --no-align --tuples-only -c"
 
+#ALTER1=$($PSQL "ALTER TABLE properties RENAME COLUMN weight TO atomic_mass")
+#ALTER2=$($PSQL "ALTER TABLE properties RENAME COLUMN melting_point TO melting_point_celsius")
+#ALTER3=$($PSQL "ALTER TABLE properties RENAME COLUMN boiling_point TO boiling_point_celsius")
+#ALTER4=$($PSQL "ALTER TABLE elements ADD UNIQUE (name)")
+#ALTER4=$($PSQL "ALTER TABLE elements ADD UNIQUE (symbol)")
+#ALTER5=$($PSQL "ALTER TABLE elements ALTER COLUMN symbol SET NOT NULL")
+#ALTER6=$($PSQL "ALTER TABLE elements ALTER COLUMN name SET NOT NULL")
+#ALTER7=$($PSQL "ALTER TABLE properties ALTER COLUMN melting_point_celsius SET NOT NULL")
+#ALTER8=$($PSQL "ALTER TABLE properties ALTER COLUMN boiling_point_celsius SET NOT NULL")
+#ALTER9=$($PSQL "ALTER TABLE properties ADD FOREIGN KEY (atomic_number) REFERENCES elements (atomic_number)")
+#ALTER10=$($PSQL "CREATE TABLE types ()")
+#ALTER11=$($PSQL "ALTER TABLE types ADD COLUMN type_id INT PRIMARY KEY")
+#ALTER12=$($PSQL "ALTER TABLE types ADD COLUMN type VARCHAR (15) NOT NULL")
+
+#ALTER13=$($PSQL "SELECT DISTINCT (type) FROM properties")
+#COUNT=1
+#echo "$ALTER13" | while read TYPE
+#do
+#echo $($PSQL " INSERT INTO types (type_id, type) VALUES ($COUNT, '$TYPE')")
+#COUNT=$((COUNT + 1))
+#done
+
+#ALTER14=$($PSQL "ALTER TABLE properties ADD COLUMN type_id INT NOT NULL DEFAULT 1")
+#ALTER15=$($PSQL "ALTER TABLE properties ADD FOREIGN KEY (type_id) REFERENCES types (type_id)")
+
 #SET up type id
 
 #Each row in your properties table should have a type_id value that links to the correct type from the types table
@@ -29,7 +54,7 @@ PSQL="psql --username=freecodecamp --dbname=periodic_table  -t --no-align --tupl
 
 #echo "$($PSQL "SELECT atomic_mass FROM properties ORDER BY atomic_number")" | while read ATOMIC_MASS
 #do
-##
+#UPDATED_MASS=$(echo $ATOMIC_MASS | sed -r 's/0*$//')
 #echo "$($PSQL "UPDATE properties SET atomic_mass = $UPDATED_MASS WHERE atomic_mass = $ATOMIC_MASS")"
 #done
 
@@ -40,6 +65,6 @@ PSQL="psql --username=freecodecamp --dbname=periodic_table  -t --no-align --tupl
 #TYPE_ID=$($PSQL "SELECT type_id FROM types WHERE type = '$ELEMENT_TYPE'")
 #UPDATE_TYPE_ID=$($PSQL "UPDATE properties SET type_id = $TYPE_ID WHERE atomic_number = 9")
 
-ELEMENT_TYPE=$($PSQL "SELECT type FROM properties WHERE atomic_number = 10")
-TYPE_ID=$($PSQL "SELECT type_id FROM types WHERE type = '$ELEMENT_TYPE'")
-UPDATE_TYPE_ID=$($PSQL "UPDATE properties SET type_id = $TYPE_ID WHERE atomic_number = 10")
+#ELEMENT_TYPE=$($PSQL "SELECT type FROM properties WHERE atomic_number = 10")
+#TYPE_ID=$($PSQL "SELECT type_id FROM types WHERE type = '$ELEMENT_TYPE'")
+#UPDATE_TYPE_ID=$($PSQL "UPDATE properties SET type_id = $TYPE_ID WHERE atomic_number = 10")
